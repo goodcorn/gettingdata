@@ -12,6 +12,7 @@ setwd("C:/Users/goodcorn/Desktop/For Coursera/Course#3_Getting and Cleaning Data
 
 ## The script run_analysis.R is created to conduct the following main steps.
 See comments on run_analysis.R for each code line's explanation. 
+
 Step 1. Merge the training and the test sets to create one data set.
 
 Step 2. Extract only the measurements on the mean and standard deviation for each measurement. 
