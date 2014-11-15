@@ -1,3 +1,5 @@
+########################## run_analysis.R #############################
+
 ## Before running the following scripts, please download and then unzip the project data folder
 ## Then set your project data folder as the working directory 
 ## setwd("C:/Users/goodcorn/Desktop/For Coursera/Course#3_Getting and Cleaning Data/Course Project/rawdata")
@@ -154,3 +156,5 @@ View(a) ##Take a look at the average results
 write.table(a, "goodcorn_final_average.txt", row.name=FALSE) # write out the 2nd dataset which is the end result of Step5
 ##According to the project requirement, "a txt file created with write.table() using row.name=FALSE".
 
+############################# End ###########################################
+############################# run_analysis.R ################################
