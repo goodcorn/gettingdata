@@ -7,6 +7,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ##The steps and variables created in the run_analysis.R program:
 
 ####Step 1: Merge the training and the test sets to create one data set.
+====
 Read in all the training related tables and store them in x_train, y_train, and subject_train.
 Read in all the testing related tables and store them in x_test, y_test, and subject_test.
 Combine the training and testing data sets and store the joined tables in join_x, join_y and join_sbj.
