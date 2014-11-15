@@ -11,7 +11,7 @@ Then set the project data folder as the working directory
 setwd("C:/Users/goodcorn/Desktop/For Coursera/Course#3_Getting and Cleaning Data/Course Project/rawdata")
 
 ## The script run_analysis.R is created to conduct the following main steps.
-See comments on run_analysis.R for each code line's explanation. 
+See comments on run_analysis.R for each code line's explanation. Please see the CodeBook.md for variable explanations.
 
 Step 1. Merge the training and the test sets to create one data set.
 
