@@ -18,8 +18,11 @@ Combine the training and testing data sets and store the joined tables in join_x
 #### Step 2: Extract only the measurements on the mean and standard deviation for each measurement.
 
 Read in the table features.txt and store it in features.
+
 Based on the example values, identify the mean and standard deviation for each measurement, store it in MeanSTD.
+
 Pull the mean and standard deviation columns related information from join_x into join_x1.
+
 Add header names to join_x1.
 
 #### Step 3: Use descriptive activity names to name the activities in the data set.
