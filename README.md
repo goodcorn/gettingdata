@@ -1,7 +1,7 @@
 Getting and Cleaning Data Course Project
 ===========
-## This repo is for the course project of Getting and Cleaning Data
-## This README.md in the repo describes how the script works. The key R script is called run_analysis.R.
+## This repo is for the course project of Getting and Cleaning Data.
+This README.md in the repo describes how the script works. The key R script is called run_analysis.R.
 
 ## The source of the project data
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
