@@ -5,6 +5,7 @@ This CodeBook.md indicate all the variables and summaries what I calculated, alo
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 ###The steps and variables created in the run_analysis.R program
+
 ####Step 1: Merge the training and the test sets to create one data set.
 Read in all the training related tables and store them in x_train, y_train, and subject_train.
 Read in all the testing related tables and store them in x_test, y_test, and subject_test.
@@ -18,55 +19,22 @@ Add header names to join_x1.
 
 #### Step 3: Use descriptive activity names to name the activities in the data set.
 Read in the activity table and store it in activity_lables.
-Update the table activity_lables to reflect descriptive names, replacing "-" by a space
-Reflect the activity description in the join_y by creating lables variable to store the related information
-Put the information from lables variable into the tabl join_y
+Update the table activity_lables to reflect descriptive names, replacing "-" by a space.
+Reflect the activity description in the join_y by creating lables variable to store the related information.
+Put the information from lables variable into the tabl join_y.
 
 #### Step 4: Appropriately label the data set with descriptive variable names.
-Give the header names to the table join_sbj
+Give the header names to the table join_sbj.
 Combined all the columns from the table join_sbj which means subject, the table join_y which means activity, and the updated table join_x1 which means the Mean and the Standard Deviations. Store the joined results into join_final.
-Write out the dataset from the table join_final and stored the file as "goodcorn_join_final.txt". This is the dataset generated at the end of Step 4
+Write out the dataset from the table join_final and stored the file as "goodcorn_join_final.txt". This is the dataset generated at the end of Step 4.
 I put "goodcorn" into the file name to show that the dataset was from me not from the raw data. 
 
-
-############################################################
-
-## Step 5. From the data set in step 4, create a second, 
-## independent tidy data set with the average of each variable for each activity and each subject.
-
-sbj<- length(table(join_sbj)) # Result: there are 30 values. 
-act<- dim(activity_lables)[1] # Result: there are 6 activity lables
-col<- dim(join_final)[2] #Result: there are 68 columns in the table join_final
-
-##We need to create table to hold the results, i.e. average values by subject and activities. 
-##Thus, there will be sbjXact rows for the col amount of columns
-a <- as.data.frame(matrix(NA, nrow=sbj*act, ncol=col) )
-colnames(a) <- colnames(join_final)
-dim(a) #Result: [1] 180  68
-
-##Now we need to start to calculate the averages by subject and by activity
-
-n <- 1
-for(i in 1:sbj) {
-  for(j in 1:act) {
-    a[n, 1] <- sort(unique(join_sbj)[, 1])[i]
-    a[n, 2] <- activity_lables[j, 2]
-    col1 <- i == join_final$subject # set condition #1 for column 1
-    #the condition is when the 1st column of the table join_final (i.e. subject) value equals to the value i
-    
-    col2 <- activity_lables[j, 2] == join_final$activity # set condiction #2 for column 2
-    #the condition is when the 2nd column of the table join_final (i.e. activity) value 
-    #equals to the value listed in the activity_lable table related cell (row j, column2)
-    
-    a[n, 3:col] <- colMeans(join_final[col1&col2, 3:col]) # when both condition 1 and 2 are met, show the average
-    n <- n + 1
-  }
-}
-
-View(a) ##Take a look at the average results
-
-write.table(a, "goodcorn_final_average.txt", row.name=FALSE) # write out the 2nd dataset which is the end result of Step5
-##According to the project requirement, "a txt file created with write.table() using row.name=FALSE".
-
-############################# End ###########################################
-############################# run_analysis.R ################################
+#### Step 5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
+Store the amount of values of table join_sbj into the variable sbj. 
+Store the amount of activities into the variable act.
+Store the amount of columns of join_final into the variable col.
+We need to create table to hold the results, i.e. average values by subject and activities. Thus, there will be sbj X act rows for the col amount of columns. 
+Create a data frame named a to list related rows and columns. 
+The colum names of a are the same as join_final's.
+Now we need to start to calculate the averages by subject and by activity by using "for" funtion to loop. 
+Write out the final results a into the file named "goodcorn_final_average.txt". This is the 2nd dataset created. This is the end result of Step5
